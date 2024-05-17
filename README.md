@@ -22,8 +22,12 @@ PythonからPaypayを操作できる非公式モジュールです。
 ## インストール方法
 [こちらのPyPIパッケージ](https://pypi.org/project/PayNexus/)を、
 ```pip install PayNexus```
+<<<<<<< Updated upstream
 などのコマンドでインストールしてください。
 ※お好みでバージョンを指定してください
+=======
+などのコマンドでインストールしてください。（お好みでバージョンを指定してください）
+>>>>>>> Stashed changes
 
 
 ## 環境
