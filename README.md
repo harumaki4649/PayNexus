@@ -18,6 +18,10 @@
 ## プロジェクトについて
 
 PythonからPaypayを操作できる非公式モジュールです。
+また、開発時間短縮のために以下のモジュールを参考・ベースに利用させていただいております。<br><br>
+**ベースモジュール**<br>
+・[PayPaython](https://github.com/taka-4602/PayPaython)<br>
+・[paypay.py](https://github.com/yuki-1729/paypay.py)
 
 ## インストール方法
 [こちらのPyPIパッケージ](https://pypi.org/project/PayNexus/)を、
