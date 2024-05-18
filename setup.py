@@ -17,7 +17,7 @@ PYTHON_REQUIRES = ">=3.9"
 # Readmeのファイルパス指定
 readme_path = r'C:\Users\msi-z\OneDrive\ドキュメント\GitHub\PayNexus\README.md'
 
-with open("./requirements.txt", "r", encoding="utf-8") as f:
+with open("./PayNexus/requirements.txt", "r", encoding="utf-8") as f:
     INSTALL_REQUIRES = f.readlines()
 
 EXTRAS_REQUIRE = {

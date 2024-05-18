@@ -81,7 +81,7 @@ class PayPay:
     def __init__(self, phone: str = None, password: str = None, client_uuid: str = str(uuid.uuid4()), token: str = None,
                  proxy: dict = None, session_save="./paypay_login.date", debug=False, webhook=None,
                  session_auto_save=False, session_check_interval=random.randint(3, 7),
-                 session_check_interval_delay_min=0, session_check_interval_delay_max=0):
+                 session_check_interval_delay=[0, 0]):
         self.session = requests.Session()
         self.proxy = proxy
         self.uuuid = client_uuid
@@ -140,8 +140,7 @@ class PayPay:
                 raise e
         if session_auto_save:
             thread = threading.Thread(target=self.session_auto_saver, kwargs={"interval": session_check_interval,
-                                                                              "min_d": session_check_interval_delay_min,
-                                                                              "max_d": session_check_interval_delay_max})
+                                                                              "delay": session_check_interval_delay})
             thread.start()
             return
 
@@ -366,7 +365,8 @@ class PayPay:
                                   headers=headers, proxies=self.proxy, json=cpotcj)
         return cpotc.json()
 
-    def session_auto_saver(self, interval, min_d, max_d):
+    def session_auto_saver(self, interval, delay):
+        min_d, max_d = delay
         from term_printer import Color
         if self.uuuid is None:
             self.color_print(f"自動再ログイン機能はuuid(client_uuid)が指定されていないため利用できません",
