@@ -77,6 +77,17 @@ def decrypt_data(encrypted_data, key):
     return decrypted_data
 
 
+def convert_to_paypay_code_format(pcode):
+    if pcode.startswith("https://pay.paypay.ne.jp/"):
+        return pcode.split('/')[-1]
+    elif pcode.startswith("[PayPay]"):
+        start_index = pcode.find("https://pay.paypay.ne.jp/")
+        if start_index != -1:
+            url = pcode[start_index:]
+            return url.split('/')[-1]
+    return pcode
+
+
 class PayPay:
     def __init__(self, phone: str = None, password: str = None, client_uuid: str = str(uuid.uuid4()), token: str = None,
                  proxy: dict = None, session_save="./paypay_login.date", debug=False, webhook=None,
@@ -274,7 +285,7 @@ class PayPay:
         return createlink.json()
 
     def check_link(self, pcode: str) -> dict:
-        info = self.session.get(f"https://www.paypay.ne.jp/app/v2/p2p-api/getP2PLinkInfo?verificationCode={pcode}",
+        info = self.session.get(f"https://www.paypay.ne.jp/app/v2/p2p-api/getP2PLinkInfo?verificationCode={convert_to_paypay_code_format(pcode)}",
                                 headers=headers, proxies=self.proxy)
         embed = DiscordEmbed(title="リンクチェック", description=str(info.json()),
                              color=Color.green().value)
@@ -290,10 +301,10 @@ class PayPay:
         except:
             raise PayPayPasswordError("パスワードの値がおかしいです！")
         if info == None:
-            info = self.session.get(f"https://www.paypay.ne.jp/app/v2/p2p-api/getP2PLinkInfo?verificationCode={pcode}",
+            info = self.session.get(f"https://www.paypay.ne.jp/app/v2/p2p-api/getP2PLinkInfo?verificationCode={convert_to_paypay_code_format(pcode)}",
                                     headers=headers, proxies=self.proxy).json()
         recevej = {
-            "verificationCode": pcode,
+            "verificationCode": convert_to_paypay_code_format(pcode),
             "client_uuid": self.uuuid,
             "passcode": password,
             "requestAt": str(datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9))).strftime(
@@ -316,13 +327,13 @@ class PayPay:
 
     def reject(self, pcode: str, info: dict = None) -> dict:
         if info == None:
-            info = self.session.get(f"https://www.paypay.ne.jp/app/v2/p2p-api/getP2PLinkInfo?verificationCode={pcode}",
+            info = self.session.get(f"https://www.paypay.ne.jp/app/v2/p2p-api/getP2PLinkInfo?verificationCode={convert_to_paypay_code_format(pcode)}",
                                     headers=headers, proxies=self.proxy).json()
         rejectj = {
             "requestAt": datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9))).strftime(
                 '%Y-%m-%dT%H:%M:%S+0900'),
             "orderId": info["payload"]["pendingP2PInfo"]["orderId"],
-            "verificationCode": pcode,
+            "verificationCode": convert_to_paypay_code_format(pcode),
             "requestId": str(uuid.uuid4()),
             "senderMessageId": info["payload"]["message"]["messageId"],
             "senderChannelUrl": info["payload"]["message"]["chatRoomId"],
@@ -454,6 +465,6 @@ class Pay2:
         self.proxy = proxy
 
     def check_link(self, pcode: str) -> dict:
-        info = requests.get(f"https://www.paypay.ne.jp/app/v2/p2p-api/getP2PLinkInfo?verificationCode={pcode}",
+        info = requests.get(f"https://www.paypay.ne.jp/app/v2/p2p-api/getP2PLinkInfo?verificationCode={convert_to_paypay_code_format(pcode)}",
                             headers=headers, proxies=self.proxy)
         return info.json()

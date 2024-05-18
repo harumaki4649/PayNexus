@@ -21,10 +21,6 @@ with open("./PayNexus/requirements.txt", "r", encoding="utf-8") as f:
     INSTALL_REQUIRES = f.readlines()
 
 EXTRAS_REQUIRE = {
-    'tutorial': [
-        'mlxtend>=0.18.0',
-        'xgboost>=1.4.2',
-    ]
 }
 
 PACKAGES = [
