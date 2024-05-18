@@ -36,12 +36,12 @@
 
 # モジュールについて
 ## タスク
->- [x] ログイン機能
->- [x] DiscordにWebhookを用いたログ等の送信
->- [x] 自動再ログイン（UUIDが必要）
->- [x] セッション保持機能のデータ保護（Paypayに登録された電話番号＋パスワードを用いて保護）
->- [ ] Paypayリンクの自動処理(https://pay.paypay.ne.jp/osuvUuLmQH8WA4kW などでも処理できるようにします)
->- [ ] `create_link`と`send_money`が動作しない問題の修正（使用するAPIを変える必要があるため検討中）
+- [x] ログイン機能
+- [x] DiscordにWebhookを用いたログ等の送信
+- [x] 自動再ログイン（UUIDが必要）
+- [x] セッション保持機能のデータ保護（Paypayに登録された電話番号＋パスワードを用いて保護）
+- [ ] Paypayリンクの自動処理(https://pay.paypay.ne.jp/osuvUuLmQH8WA4kW などでも処理できるようにします)
+- [ ] `create_link`と`send_money`が動作しない問題の修正（使用するAPIを変える必要があるため検討中）
 <!--- 必須マーク : <span style="color:red">＊</span> -->
 ## ドキュメント
 | 関数                         | パラメータ                                                                                                                  | 説明                                                                                                                         |
