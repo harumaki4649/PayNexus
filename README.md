@@ -1,30 +1,24 @@
 # PayNexus
 
-## プログラム言語
-
-<!-- シールド一覧 -->
-<!-- 該当するプロジェクトの中から任意のものを選ぶ-->
-<p style="display: inline">
-  <img src="https://img.shields.io/badge/-Python-F2C63C.svg?logo=python&style=for-the-badge">
-</p>
-
 ## 目次
 
-1. [プロジェクトについて](#プロジェクトについて)
-2. [インストール方法](#インストール方法)
-3. [環境](#環境)
-4. [モジュールについて](#モジュールについて)
+>1. [プロジェクトについて](#プロジェクトについて)
+>2. [インストール方法](#インストール方法)
+>3. [環境](#環境)
+>4. [モジュールについて](#モジュールについて)
 
 ## プロジェクトについて
 
-PythonからPaypayを操作できる非公式モジュールです。<br>
+>PythonからPaypayを操作できる非公式モジュールです。<br>
 また、開発時間短縮のために以下のモジュールを参考・ベースに利用させていただいております。<br><br>
 **ベースモジュール**<br>
 ・[PayPaython](https://github.com/taka-4602/PayPaython)<br>
 ・[paypay.py](https://github.com/yuki-1729/paypay.py)
+> 
+[公式Githubはこちら](https://github.com/harumaki4649/PayNexus)
 
 ## インストール方法
-[こちらのPyPIパッケージ](https://pypi.org/project/PayNexus/)を、
+>[こちらのPyPIパッケージ](https://pypi.org/project/PayNexus/)を、
 ```pip install PayNexus```
 などのコマンドでインストールしてください。<br>
 ※お好みでバージョンを指定してください
@@ -38,16 +32,16 @@ PythonからPaypayを操作できる非公式モジュールです。<br>
 | --------------------- | ---------- |
 | Python                | 3.9.19     |
 
-パッケージのバージョンは requirements.txt を参照してください
+>パッケージのバージョンは requirements.txt を参照してください
 
 # モジュールについて
 ## タスク
-- [x] ログイン機能
-- [x] DiscordにWebhookを用いたログ等の送信
-- [x] 自動再ログイン（UUIDが必要）
-- [x] セッション保持機能のデータ保護（Paypayに登録された電話番号＋パスワードを用いて保護）
-- [ ] Paypayリンクの自動処理(https://pay.paypay.ne.jp/osuvUuLmQH8WA4kW などでも処理できるようにします)
-- [ ] `create_link`と`send_money`が動作しない問題の修正（使用するAPIを変える必要があるため検討中）
+>- [x] ログイン機能
+>- [x] DiscordにWebhookを用いたログ等の送信
+>- [x] 自動再ログイン（UUIDが必要）
+>- [x] セッション保持機能のデータ保護（Paypayに登録された電話番号＋パスワードを用いて保護）
+>- [ ] Paypayリンクの自動処理(https://pay.paypay.ne.jp/osuvUuLmQH8WA4kW などでも処理できるようにします)
+>- [ ] `create_link`と`send_money`が動作しない問題の修正（使用するAPIを変える必要があるため検討中）
 <!--- 必須マーク : <span style="color:red">＊</span> -->
 ## ドキュメント
 | 関数                         | パラメータ                                                                                                                  | 説明                                                                                                                         |
