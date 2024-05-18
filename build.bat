@@ -1,6 +1,7 @@
 @echo off
-cd C:\Users\msi-z\OneDrive\ƒhƒLƒ…ƒƒ“ƒg\GitHub\PayNexus
+cd C:\Users\msi-z\OneDrive\ï¿½hï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½g\GitHub\PayNexus
 pipreqs ./PayNexus
 python remove.py
 python setup.py sdist
 python setup.py bdist_wheel
+pause

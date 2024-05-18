@@ -7,8 +7,8 @@ import PayNexus
 
 DESCRIPTION = "PayNexus: PythonからPayPayを操作できる非公式モジュールです。"
 NAME = 'PayNexus'
-AUTHOR = 'Haruki Kodama'
-AUTHOR_EMAIL = 'tp-link-z490@outlook.jp'
+AUTHOR = 'tp-link'
+AUTHOR_EMAIL = 'support@disnana.com'
 URL = 'https://github.com/harumaki4649/PayNexus'
 LICENSE = 'BSD 3-Clause'
 DOWNLOAD_URL = 'https://github.com/harumaki4649/PayNexus'

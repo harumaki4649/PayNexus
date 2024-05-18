@@ -1,13 +1,13 @@
 Metadata-Version: 2.1
 Name: PayNexus
-Version: 0.2.3
+Version: 0.2.4
 Summary: PayNexus: PythonからPayPayを操作できる非公式モジュールです。
 Home-page: https://github.com/harumaki4649/PayNexus
 Download-URL: https://github.com/harumaki4649/PayNexus
-Author: Haruki Kodama
-Author-email: tp-link-z490@outlook.jp
-Maintainer: Haruki Kodama
-Maintainer-email: tp-link-z490@outlook.jp
+Author: tp-link
+Author-email: support@disnana.com
+Maintainer: tp-link
+Maintainer-email: support@disnana.com
 License: BSD 3-Clause
 Classifier: Intended Audience :: Science/Research
 Classifier: License :: OSI Approved :: BSD License
