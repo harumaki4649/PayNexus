@@ -102,6 +102,7 @@ class PayPay:
         self.webhook = webhook
         self.session_save = session_save
         self.key = generate_key(phone, password)
+        self.session_auto_save = session_auto_save
         if os.path.exists(session_save) and token is None:
             with open(session_save, 'rb') as f:
                 token = decrypt_data(pickle.load(f), self.key)
@@ -152,6 +153,7 @@ class PayPay:
         if session_auto_save:
             thread = threading.Thread(target=self.session_auto_saver, kwargs={"interval": session_check_interval,
                                                                               "delay": session_check_interval_delay})
+            thread.setDaemon(True)
             thread.start()
             return
 
@@ -376,6 +378,10 @@ class PayPay:
                                   headers=headers, proxies=self.proxy, json=cpotcj)
         return cpotc.json()
 
+    def session_auto_saver_exit(self):
+        self.session_auto_save = False
+        return
+
     def session_auto_saver(self, interval, delay):
         min_d, max_d = delay
         from term_printer import Color
@@ -384,7 +390,7 @@ class PayPay:
                              [Color.YELLOW])
             return
         interval = interval * 60
-        while True:
+        while self.session_auto_save:
             self.session.cookies.set("token", self.token)
             try:
                 if not self.session.get("https://www.paypay.ne.jp/app/v1/bff/getBalanceInfo", headers=headers,
@@ -430,6 +436,7 @@ class PayPay:
                         self.color_print(f"ログイン失敗", [Color.RED])
                         raise e
             delay = random.randint(min_d, max_d)
+            # whileは自動で終わるようにしたけど、time.sleepが終わるまでwhileのif checkがされないから何とかする
             time.sleep(interval + delay)
 
     def color_print(self, text, color):
