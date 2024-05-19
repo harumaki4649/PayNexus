@@ -11,7 +11,7 @@
 
 PythonからPaypayを操作できる非公式モジュールです。<br>
 また、開発時間短縮のために以下のモジュールを参考・ベースに利用させていただいております。<br><br>
-**ベースモジュール**<br>
+>**ベースモジュール**<br>
 ・[PayPaython](https://github.com/taka-4602/PayPaython)<br>
 ・[paypay.py](https://github.com/yuki-1729/paypay.py)
 <br><br>**公式サイト**<br>
