@@ -14,8 +14,7 @@
 **ベースモジュール**<br>
 ・[PayPaython](https://github.com/taka-4602/PayPaython)<br>
 ・[paypay.py](https://github.com/yuki-1729/paypay.py)
-
->**公式サイト**<br>
+<br>**公式サイト**<br>
 ・[公式Github（使い方など）はこちら](https://github.com/harumaki4649/PayNexus)<br>
 ・[公式Note（更新情報など）はこちら](https://note.com/humareuka6295/m/m0fc09a1b95c1)
 
